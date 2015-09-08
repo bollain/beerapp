@@ -1,4 +1,5 @@
-package model;
+package beerapp;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,7 +15,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
-public class Driver {
+public class beer {
 
 	public static void main(String[]args)
 	{
@@ -43,6 +44,28 @@ public class Driver {
 		
 		}
 		while (foodPairing.equals("") || foodPairing == null);
+		
+		//Prompt user to see if he wants recipes
+		System.out.println("Would you like a recipe based on these pairings?");
+		
+		//String input by keyboard
+		java.util.Scanner keyboardReader;
+		keyboardReader  = new java.util.Scanner(System.in);
+		
+		//set s1 to be the input
+		String s1 = keyboardReader.nextLine();
+		
+		if(s1.toLowerCase().equals("y")){
+			//do the parsing
+			nonsenseParser p = new nonsenseParser();
+			List<String> s = p.getSearchTerms(foodPairing);
+			parseRecipe pr = new parseRecipe();
+			Recipe r = pr.recipeParse(s);
+			r.print();
+		} else {
+			System.out.println("Thanks for using the service!");
+		}
+		
 		
 	}
 
@@ -78,7 +101,7 @@ public class Driver {
 					java.util.Scanner keyboardReader;
 					keyboardReader = new java.util.Scanner(System.in);
 					String s1 = keyboardReader.nextLine();
-					if (s1.equals("Y")){
+					if (s1.toLowerCase().equals("y")){
 						foodPairing = beer.getString("foodPairings");
 						break;
 					}
