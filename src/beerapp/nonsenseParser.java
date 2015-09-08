@@ -8,7 +8,7 @@ public class nonsenseParser {
 	
 	List<String> foodWords = Arrays.asList("spicy", "savoury", "mexican", "asian", "spiced",
 			"shellfish", "fish", "chicken", "beef", "grilled", "chinese", "curried", "thai", "burgers",
-			"salmon", "pork");
+			"salmon", "pork", "mushrooms", "venison", "gruyere", "lamb");
 	String nonSense;
 	List<String> allStrings;
 	
